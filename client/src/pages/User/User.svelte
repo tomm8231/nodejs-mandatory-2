@@ -1,2 +1,2 @@
-<h3>Admin page</h3>
+<h3>Brugerside</h3>
 <p>Hemmelig side</p>

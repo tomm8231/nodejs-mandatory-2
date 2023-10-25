@@ -1,1 +1,1 @@
-<h3>Front page</h3>
+<h3>Forside</h3>

@@ -1,3 +1,5 @@
+<h3>Kontaktside</h3>
+
 <form action="/send-email" method="post">
   <label for="email">Email</label>
   <input type="email" name="email" placeholder="Din emailadresse" value="mail@mail.dk" required />
