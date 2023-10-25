@@ -1,6 +1,11 @@
 import Express from "express"
 const app = Express()
 
+app.use(Express.json());
+
+import dotenv from "dotenv"
+dotenv.config()
+
 
 // ============== Middleware ==============
 
@@ -34,10 +39,9 @@ app.use("/auth", authRateLimiter)
 
 import authRouter from "./routers/authRouter.js"
 app.use(authRouter)
-import adminRouter from "./routers/adminRouter.js"
-app.use(adminRouter)
-import homeRouter from "./routers/homeRouter.js"
-app.use(homeRouter)
+import contactRouter from "./routers/contactRouter.js"
+app.use(contactRouter)
+
 
 
 // ============== Wildcard route ==============
