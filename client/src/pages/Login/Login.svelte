@@ -1,3 +1,4 @@
+<h3>Login</h3>
 <form action="/login" method="post">
     <label for="username">Brugernavn</label>
     <input type="text" name="username" placeholder="Dit brugernavn" value="admin" required>
