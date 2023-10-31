@@ -8,8 +8,7 @@ import nodemailer from 'nodemailer';
 //Tested in Postman and works
 
 router.post('/contact', async (req, res) => {
-    const { email, subject, message } = req.body;
-  
+    const { email, subject, message } = req.body;  
     const transporter = nodemailer.createTransport({
       host: 'smtp.ethereal.email',
       port: 587,
@@ -21,9 +20,9 @@ router.post('/contact', async (req, res) => {
   
     try {
       await transporter.sendMail({
-        from: "tommy@",
+        from: "tommy@s.dk",
         to: email,
-        subject,
+        subject: subject,
         text: message,
         html: `<b>${message}</b>`,
       });

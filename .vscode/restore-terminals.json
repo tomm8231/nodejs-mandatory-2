@@ -1,0 +1,31 @@
+{
+    "artificialDelayMilliseconds": 500,
+    "keepExistingTerminalsOpen": false,
+    "runOnStartup": true,
+    "terminals": [
+      {
+        "splitTerminals": [
+          {
+            "name": "client git",
+            "commands": ["cd client", "ls"]
+          },
+          {
+            "name": "client running",
+            "commands": ["cd client", "npm run dev"]
+          }
+        ]
+      },
+      {
+        "splitTerminals": [
+          {
+            "name": "server git",
+            "commands": ["cd server", "ls"]
+          },
+          {
+            "name": "server running",
+            "commands": ["cd server", "npm run start:dev"]
+          }
+        ]
+      }
+    ]
+  }

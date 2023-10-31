@@ -1,10 +1,24 @@
+import "dotenv/config"
+
 import Express from "express"
 const app = Express()
-
 app.use(Express.json());
 
-import dotenv from "dotenv"
-dotenv.config()
+//https://www.npmjs.com/package/helmet
+import helmet from "helmet"
+app.use(helmet())
+
+import cors from "cors"
+app.use(cors())
+
+import session from "express-session"
+
+app.use(session({
+    secret: process.env.SESSION_SECRET,
+    resave: false,
+    saveUninitialized: true,
+    cookie: { secure: false }
+  }))
 
 
 // ============== Middleware ==============
