@@ -5,6 +5,7 @@ import User from "./pages/User/User.svelte"
 import Login from "./pages/Login/Login.svelte"
 import Signup from "./pages/Signup/Signup.svelte";
 import Contact from "./pages/Contact/Contact.svelte";
+import PrivateRoute from "./PrivateRoute.svelte";
 
 </script>
 
@@ -22,7 +23,7 @@ import Contact from "./pages/Contact/Contact.svelte";
 		<Route path="/"><Home /></Route>
 		<Route path="/login"><Login /></Route>
 		<Route path="/signup"><Signup /></Route>
-		<Route path="/user"><User /></Route>
+		<PrivateRoute path="/user" let:location><User /></PrivateRoute>
 		<Route path="/contact"><Contact /></Route>
 	</div>
 

@@ -1,48 +1,67 @@
 <script>
-  import toastr from "toastr"
-  import 'toastr/build/toastr.css'
+  import toastr from "toastr";
+  import "toastr/build/toastr.css";
 
-
-  let email = '';
-  let subject = '';
-  let message = '';
+  let email = "";
+  let subject = "";
+  let message = "";
 
   async function handleSubmit(event) {
-    event.preventDefault()
+    event.preventDefault();
 
     const options = {
-      method: 'POST',
+      method: "POST",
       headers: {
-        'Content-Type': 'application/json',
+        "Content-Type": "application/json",
       },
+      credentials: "include",
       body: JSON.stringify({ email, subject, message }),
     };
 
-    const response = await fetch("http://localhost:8080/contact", options)
-    const result = await response.json()
+    // @ts-ignore
+    const response = await fetch("http://localhost:8080/contact", options);
+    const result = await response.json();
 
     if (response.ok) {
-      toastr.info("Beskeden blev sendt")
-      email = ""
-      subject = ""
-      message = ""
+      toastr.info("Beskeden blev sendt");
+      email = "";
+      subject = "";
+      message = "";
     } else {
       toastr.error("Beskeden blev ikke sendt. Prøv igen.");
     }
   }
-
 </script>
+
 <h3>Kontaktside</h3>
 
 <form on:submit={(event) => handleSubmit(event)}>
   <label for="email">Email</label>
-  <input type="email" name="email" placeholder="Din emailadresse" bind:value={email} required />
+  <input
+    type="email"
+    name="email"
+    placeholder="Din emailadresse"
+    bind:value={email}
+    required
+  />
   <br />
   <label for="subject">Emne</label>
-  <input type="text" name="subject" placeholder="Emne..." bind:value={subject} required />
+  <input
+    type="text"
+    name="subject"
+    placeholder="Emne..."
+    bind:value={subject}
+    required
+  />
   <br />
-  <label for="message"></label>
-  <textarea name="message" placeholder="Din besked..." bind:value={message} required style="width:400px; height:200px"/>
+  <label for="message" />
+  <textarea
+    name="message"
+    placeholder="Din besked..."
+    bind:value={message}
+    required
+    style="width:400px; height:200px"
+  />
   <br />
   <button type="submit">Send besked</button>
 </form>
