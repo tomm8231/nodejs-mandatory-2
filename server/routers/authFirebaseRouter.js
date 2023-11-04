@@ -5,6 +5,10 @@ import { auth } from '../firebase/config.js';
 
 const router = Router()
 
+router.get("/test", (req, res) => {
+  res.send("check")
+})
+
 
 router.post('/auth/login', async (req, res) => {
     try {
