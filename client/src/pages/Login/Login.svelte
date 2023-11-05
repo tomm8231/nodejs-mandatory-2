@@ -38,7 +38,6 @@
     }
   }
 </script>
-
 <h3>Login</h3>
 <form on:submit={(event) => handleLogin(event)}>
   <label for="email">Email</label>

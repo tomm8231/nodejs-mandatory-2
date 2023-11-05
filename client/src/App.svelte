@@ -8,7 +8,7 @@ import Contact from "./pages/Contact/Contact.svelte";
 import Error from "./pages/Error/Error.svelte";
 import PrivateRoute from "./PrivateRoute.svelte";
 import { user } from "./stores";
-import { onMount } from "svelte";
+
 
   if (localStorage.getItem("userId")) {
     user.set({ id: localStorage.getItem('userId') });
