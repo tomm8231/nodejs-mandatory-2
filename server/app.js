@@ -2,7 +2,7 @@ import "dotenv/config"
 
 import Express from "express"
 const app = Express()
-app.use(Express.json());
+app.use(Express.json())
 
 //https://www.npmjs.com/package/helmet
 import helmet from "helmet"
@@ -32,20 +32,20 @@ import { rateLimit } from "express-rate-limit"
 const allRoutesRateLimiter = rateLimit({
 	windowMs: 15 * 60 * 1000, // 15 minutes
 	limit: 200, // Limit each IP to 100 requests per `window` (here, per 15 minutes).
-	standardHeaders: 'draft-7', // draft-6: `RateLimit-*` headers; draft-7: combined `RateLimit` header
+	standardHeaders: 'draft-7', // draft-6: `RateLimit-*` headers draft-7: combined `RateLimit` header
 	legacyHeaders: false, // Disable the `X-RateLimit-*` headers.
 	// store: ... , // Use an external store for consistency across multiple server instances.
-});
+})
 
 app.use(allRoutesRateLimiter)
 
 const authRateLimiter = rateLimit({
 	windowMs: 15 * 60 * 1000, // 15 minutes
 	limit: 100, // Limit each IP to 100 requests per `window` (here, per 15 minutes).
-	standardHeaders: 'draft-7', // draft-6: `RateLimit-*` headers; draft-7: combined `RateLimit` header
+	standardHeaders: 'draft-7', // draft-6: `RateLimit-*` headers draft-7: combined `RateLimit` header
 	legacyHeaders: false, // Disable the `X-RateLimit-*` headers.
 	// store: ... , // Use an external store for consistency across multiple server instances.
-});
+})
 
 app.use("/auth", authRateLimiter)
 
@@ -68,8 +68,8 @@ import contactRouter from "./routers/contactRouter.js"
 app.use(contactRouter)
 
 app.get('/protected', checkAuth, (req, res) => {
-	res.status(200).send({ data: 'This is a protected route' });
-  });
+	res.status(200).send({ data: 'This is a protected route' })
+  })
 
 
 

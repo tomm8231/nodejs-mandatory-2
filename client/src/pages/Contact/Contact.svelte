@@ -1,13 +1,13 @@
 <script>
-  import toastr from "toastr";
-  import "toastr/build/toastr.css";
+  import toastr from "toastr"
+  import "toastr/build/toastr.css"
 
-  let email = "";
-  let subject = "";
-  let message = "";
+  let email = ""
+  let subject = ""
+  let message = ""
 
   async function handleSubmit(event) {
-    event.preventDefault();
+    event.preventDefault()
 
     const options = {
       method: "POST",
@@ -16,19 +16,19 @@
       },
       credentials: "include",
       body: JSON.stringify({ email, subject, message }),
-    };
+    }
 
     // @ts-ignore
-    const response = await fetch("http://localhost:8080/contact", options);
-    const result = await response.json();
+    const response = await fetch("http://localhost:8080/contact", options)
+    const result = await response.json()
 
     if (response.ok) {
-      toastr.info("Beskeden blev sendt");
-      email = "";
-      subject = "";
-      message = "";
+      toastr.info("Beskeden blev sendt")
+      email = ""
+      subject = ""
+      message = ""
     } else {
-      toastr.error("Beskeden blev ikke sendt. Prøv igen.");
+      toastr.error("Beskeden blev ikke sendt. Prøv igen.")
     }
   }
 </script>
@@ -60,7 +60,7 @@
     placeholder="Din besked..."
     bind:value={message}
     required
-    style="width:400px; height:200px"
+    style="width:400px height:200px"
   />
   <br />
   <button type="submit">Send besked</button>

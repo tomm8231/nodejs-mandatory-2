@@ -1,15 +1,15 @@
 <script>
-  import { useNavigate, useLocation } from "svelte-navigator";
-  import { user } from "../../stores.js";
+  import { useNavigate, useLocation } from "svelte-navigator"
+  import { user } from "../../stores.js"
 
-  const navigate = useNavigate();
-  const location = useLocation();
+  const navigate = useNavigate()
+  const location = useLocation()
 
-  let email = "";
-  let password = "";
+  let email = ""
+  let password = ""
 
   async function handleLogin(event) {
-    event.preventDefault();
+    event.preventDefault()
     try {
       const options = {
         method: "POST",
@@ -19,22 +19,22 @@
         },
         credentials: "include",
         body: JSON.stringify({ email, password }),
-      };
+      }
 
       // @ts-ignore
-      const response = await fetch("http://localhost:8080/auth/login", options);
+      const response = await fetch("http://localhost:8080/auth/login", options)
 
       if (response.ok) {
-        const data = await response.json();
-        localStorage.setItem("userId", data.userData.user.uid);
-        $user = { email, password };
-        const from = ($location.state && $location.state.from) || "/";
-        navigate(from, { replace: true });
+        const data = await response.json()
+        localStorage.setItem("userId", data.userData.user.uid)
+        $user = { email, password }
+        const from = ($location.state && $location.state.from) || "/"
+        navigate(from, { replace: true })
       } else {
-        console.log("Login failed");
+        console.log("Login failed")
       }
     } catch (error) {
-      console.log("Error occured", error);
+      console.log("Error occured", error)
     }
   }
 </script>

@@ -3,20 +3,18 @@ import { Router, Link, Route } from "svelte-navigator"
 import Home from "./pages/Home/Home.svelte"
 import User from "./pages/User/User.svelte"
 import Login from "./pages/Login/Login.svelte"
-import Signup from "./pages/Signup/Signup.svelte";
-import Contact from "./pages/Contact/Contact.svelte";
-import Error from "./pages/Error/Error.svelte";
-import PrivateRoute from "./PrivateRoute.svelte";
-import { user } from "./stores";
+import Signup from "./pages/Signup/Signup.svelte"
+import Contact from "./pages/Contact/Contact.svelte"
+import Error from "./pages/Error/Error.svelte"
+import PrivateRoute from "./PrivateRoute.svelte"
+import { user } from "./stores"
 
 
   if (localStorage.getItem("userId")) {
-    user.set({ id: localStorage.getItem('userId') });
+    user.set({ id: localStorage.getItem('userId') })
   }
 
 async function handleLogout() {
-
-	console.log("sker der noget?")
 
 	const options = {
 		method: 'POST',
@@ -30,7 +28,7 @@ async function handleLogout() {
 	const response = await fetch("http://localhost:8080/auth/logout", options)
 	if (response.ok) {
 		user.set(null)
-		localStorage.removeItem('userId');		
+		localStorage.removeItem('userId')
 	} else {
 		//toastr...
 		console.log("Could not log out")

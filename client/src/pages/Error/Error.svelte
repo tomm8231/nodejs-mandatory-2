@@ -1,13 +1,13 @@
 <style>
     h3:focus{
-       outline:auto; 
+       outline:auto 
     }
 </style>
 <script>
-    import { onMount } from 'svelte';
+    import { onMount } from 'svelte'
     
-    let url = "";
-    onMount(() => url = window.location.href);
+    let url = ""
+    onMount(() => url = window.location.href)
     
 
 </script>
